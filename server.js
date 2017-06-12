@@ -9,6 +9,8 @@ request("www.usatoday.com", function(error, response, http){
   var result  = [];
   // go to each 
   $("p4.tittle).each(function(i, element){
-    
+    // save the text of the element to the tittle
+    var tittle = $(this).text();
+  var link = $(element
     });
 });
