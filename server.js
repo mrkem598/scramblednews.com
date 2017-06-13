@@ -84,7 +84,7 @@ if (error) {
 //creating a new note or replacing an existing note
 app.get("/articles/:id", function(req, res) {
   //create a new note and pass the req.body to the entry
-  var newNote = new Note(req.body");
+  var newNote = new Note(req.body);
   //save the new note to the db
   newNote.save(function(error, doc){
     if (error) {
