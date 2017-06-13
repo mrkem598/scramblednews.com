@@ -31,15 +31,77 @@ db.once("open", function() {
 // requesting the web page to scrape
 app.get("/scrape", function(req, res) {
   // grab the body of html with request
-request("http://www.usatoday.com", function(error, response, http){
-  // assigning the cheerio to $
-  var $ = cheerio.load(http);
-  // creating empty variable called result
-  var result  = [];
-  // go to each
-  $("p4.headline").each(function(i, element){
-    // save the text of the element to the tittle
-    var tittle = $(this).text();
-    var link = $(element
+request("http://www.usatoday.com", function(error, response, html){
+  // loading in to the cheerio and save to $
+  var $ = cheerio.load(html);
+  // grab every every h4with in a headline tag
+  $("headline h4").each(function(i, element){
+  // creating empty  result object to push the result
+  var result  = {};
+  // add the text & href of every link, and save them as properties of result object
+    result.tittle = $(this).children("a").text();
+    result.link = $(this).children("a").attr("href");
+    //using article model create a new entry
+    var entry = new Article(result);
+    //save the entry to the db
+    entry.save(function(err, doc) {
+      if (err) {
+        console.log(err);
+      }else{
+        console.log(doc);
+      }
     });
+  });
 });
+  res.send("Scrape Complete");
+});
+//get the article scraped from the mongodb
+app.get("/articles", function(req, res) {
+  //Grab every doc in the articles array
+  Article.find({}, function(error, doc) {
+    // log any errors
+    if (error) {
+      console.log(error);
+    }else{
+      res.json(doc);
+    }
+  });
+});
+//grab an article by id
+app.get("/articles/:_id", function(req, res);
+ // find one that match
+ Article.findOne({ "_id", req.params.id})
+// populate the notes associated with it
+.populate("note")
+//check for error and log out result as JSON file
+if (error) {
+  console.log(error) 
+}else{
+  res.json(doc);
+}
+});
+});
+//creating a new note or replacing an existing note
+app.get("/articles/:id", function(req, res) {
+  //create a new note and pass the req.body to the entry
+  var newNote = new Note(req.body");
+  //save the new note to the db
+  newNote.save(function(error, doc){
+    if (error) {
+      console.log(error)
+    }else{
+      // send the document to the browser
+      res.send(doc);
+    }
+  }):
+}
+        });
+});
+//finally listen on the port 3000
+app.listen(3000, function() {
+  console.log("App runing on port 3000");
+});
+
+
+  
+
