@@ -75,7 +75,7 @@ app.get("/articles/:_id", function(req, res);
 .populate("note")
 //check for error and log out result as JSON file
 if (error) {
-  console.log(error) 
+  console.log(error)
 }else{
   res.json(doc);
 }
@@ -101,7 +101,3 @@ app.get("/articles/:id", function(req, res) {
 app.listen(3000, function() {
   console.log("App runing on port 3000");
 });
-
-
-  
-
