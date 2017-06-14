@@ -1,22 +1,52 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-   <meta chrset="UTF-8">
-   <tittle>scrambled news from USA Today</tittle>
- <style>
-   
+<!-- saved from url=(0043)http://getbootstrap.com/examples/jumbotron/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Scraped News</title>
+  <style>
+  .jumbotron {
+    background-color: gold;
+    width: 800px;
+    height: 100px;
+    text-align: center;
+    padding: inherit;
+
+  }
+  #wrapper {
+    background-image: image("");
+    text-decoration-color: green;
+    text-decoration-style: double;
+    text-align: center;
+  }
   </style>
-  </head>
-  <body>
-    
-    <div id="wrapper">
-      <h1>Scrambled Scraper<h1>
-         <div id="articles"></div>
-         <div id="notes"></div>
+</head>
+<body>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Welcome to My News</h1>
+      <p>You will Get the best news from the walstreet journal with out subscribing to walstree. We are the art of web scraping!!.</p>
     </div>
-     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="app.js"></script>
-   </body>
-   </html>
-  
-  
+  </div>
+  <div class="container">
+    <!-- Example row of columns -->
+    <div id="wrapper">
+      <div class="col-md-4">
+        <h2>Heading</h2>
+        <div id="articles">Here is the news!</div>
+        <div id="notes">Read in confidence with out payment!</div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <p>© 2017 MohDiv, Inc.</p>
+    </footer>
+  </div> <!-- /container -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

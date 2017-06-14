@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 // create schema class
 var Schema = mongoose.Schema;
 // Create the note schema
-var NoteSchema = New Schema({
+var NoteSchema = new Schema({
   // just string
   title: {
     type: String
