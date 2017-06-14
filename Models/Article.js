@@ -13,3 +13,12 @@ title: {
     require: true
   },
   ///saves only one note's objectId, ref refers to note model
+note: {
+  type: Schema.Types.ObjectId,
+  ref: "Note"
+}
+});
+//create atricle model with the ArticleSchema
+var Article = mongoose.model("Artivl",  ArticleSchema);
+//export the model
+module.exports = Article;
