@@ -1,6 +1,7 @@
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
   // For each one
+  console.log("it run!", data)
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
     $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
@@ -31,9 +32,9 @@ $(document).on("click", "p", function() {
       // If there's a note in the article
       if (data.note) {
         // Place the title of the note in the title input
-        $("#titleinput").val(data.note.title);
+        $("#article").val(data.note.title);
         // Place the body of the note in the body textarea
-        $("#bodyinput").val(data.note.body);
+        $("#article").val(data.note.body);
       }
     });
 });

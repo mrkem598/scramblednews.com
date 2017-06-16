@@ -33,15 +33,15 @@ db.once("open", function() {
 // requesting the web page to scrape
 app.get("/scrape", function(req, res) {
   // grab the body of html with request
-  request("https://www.wsj.com/europe", function(error, response, html){
+  request("http://www.wsj.com/", function(error, response, html){
     // loading in to the cheerio and save to $
     var $ = cheerio.load(html);
     // grab every h4 with in a headline tag
-    $(".header").each(function(i, element){
+    $(".title").each(function(i, element){
       // creating empty  result object to push the result
       var result  = {};
       // add the text & href of every link, and save them as properties of result object
-      result.tittle = $(this).children("a").text();
+      result.title = $(this).children("a").text();
       result.link = $(this).children("a").attr("href");
       //using article model create a new entry
       var entry = new Article(result);
